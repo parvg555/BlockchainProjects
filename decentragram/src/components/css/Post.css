@@ -1,0 +1,114 @@
+@font-face {
+    font-family: Proxima Nova Font;
+    src: url(../../assets/fonts/Proxima\ Nova\ Font.otf) format('opentype');
+}
+
+.post {
+    height: 100px;
+    width: 100px;
+    margin-top: 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.photo {
+    height: 80%;
+    width: 100%;
+    justify-content: center;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    background-color: seashell;
+}
+
+.photo img{
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+}
+
+.user {
+    height: 10%;
+    width: 98%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.post-username {
+    margin-left: 5px;
+    font-size: 15px;
+}
+
+.post-likes {
+    margin-left: -3px;
+}
+
+
+.like {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.like input {
+    width: 100%;
+    outline:0;
+    margin-top: 10px;
+    resize: none;
+    border-width: 0 0 2px;
+}
+
+.description {
+    width: 80%;
+    height: 80%;
+    margin-left: 20px;
+    word-wrap: break-word;
+    overflow: hidden;
+    font-size: small;
+    font-family:Proxima Nova Font;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+
+@media screen and (orientation:portrait) {
+    .post{
+        height: 60vw;
+        width: 60vw;
+    }
+}
+
+@media screen and (orientation:landscape) {
+    .post{
+        height: 60vh;
+        width: 60vh;
+    }
+}
+
+.post-button {
+    margin-top: 20px;
+    width: 100px;
+    height: 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border-radius: 5px;
+    background-color: rgb(68, 124, 177);
+    cursor: pointer;
+}
+
+.post-button:hover {
+    background-color: rgb(103, 107, 136);
+}
+
+.select-image {
+    height: 30px;
+    width: 85px;
+    position: absolute;
+    z-index: 2;
+}

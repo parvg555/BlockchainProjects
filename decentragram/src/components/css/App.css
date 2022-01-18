@@ -1,0 +1,10 @@
+@font-face {
+    font-family: 'Billabong';
+    src: local('Billabong'),url(../../assets/fonts/Billabong.ttf) format('ttf');
+}
+
+.App {
+    height: 100vh;
+    width: 100vw;
+    background-color: #fefefe;
+}

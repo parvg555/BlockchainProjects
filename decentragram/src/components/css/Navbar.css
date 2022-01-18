@@ -1,0 +1,34 @@
+@font-face {
+    font-family: Billabong;
+    src: url(../../assets/fonts/Billabong.ttf);
+}
+
+.navbar {
+    height: 8vh;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    background-color: #f9f9f9;
+    color: #252324;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    z-index: 1;
+}
+
+.nav-item {
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+.heading{
+    font-family: Billabong;
+    font-size: 40px;
+    font-weight: 500;
+}
+
+.username {
+    width: 73px;
+    overflow: hidden;
+}
