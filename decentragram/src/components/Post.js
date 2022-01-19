@@ -6,13 +6,34 @@ import Avatar from '@mui/material/Avatar';
 
 import Identicon from 'identicon.js';
 
-import sampleImage from '../assets/img/sample.jpg'
-
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
-import FavoriteIcon from '@mui/icons-material/Favorite';
+
 import { IconButton } from '@mui/material';
 
-function Post({userid}) {
+import Web3 from 'web3';
+
+function Post({
+    user,
+    userid,
+    postid,
+    likes,
+    description,
+    imgHash,
+    decentragram
+}) {
+
+    const likePost = () => {
+        const web3 = new Web3(Web3.givenProvider || 'http://localhost:7545');
+        decentragram.methods.likePost(
+            postid
+        ).send({
+            from:user,
+            value: web3.utils.toWei('0.0','Ether')
+        }).on('transactionHash', (hash) => {
+           alert("POST LIKED");
+        })
+    }
+
     return (
         <div className='post'>
             {/* USER SECTION */}
@@ -26,25 +47,29 @@ function Post({userid}) {
                     }
                 />
                 <div className="post-username">
-                    @asduasdjansjkdnakjsdn
+                    @{userid}
                 </div>
             </div>
             {/* PHOTO SECTION */}
             <div className='photo'>
-                <img src={sampleImage} alt="" />
+                <img src={`https://ipfs.infura.io/ipfs/${imgHash}`} alt="" />
             </div>
             {/* LIKE DONATION SECTION */}
             <div className="like">
-                <IconButton>
+                <IconButton 
+                    onClick = {() => {
+                        likePost();
+                    }}
+                >
                     <FavoriteBorderIcon
                         fontSize='large'
                     />
                 </IconButton>
                 <div className="post-likes">
-                    12121
+                    {likes}
                 </div>
                 <div className="description">
-                    Hello, this is a caption
+                    {description}
                 </div>
             </div>
         </div>

@@ -4,13 +4,28 @@ import './css/Posts.css'
 
 import Post from './Post'
 
-function Posts() {
+function Posts({
+    user,
+    posts,
+    postCount,
+    decentragram
+}) {
     return (
         <div className='posts'>
-            <Post/>
-            <Post/>
-            <Post/>
-            <Post/>
+            {/* <div>TOTAL POSTS: {postCount}</div> */}
+            {
+                posts.map((item,i) => (
+                    <Post 
+                        user = {user}
+                        userid={item.author}
+                        likes = {item.likes}
+                        description={item.description}
+                        imgHash={item.hash}
+                        decentragram = {decentragram}
+                        postid = {item.id}
+                    />
+                ))
+            }
         </div>
     )
 }

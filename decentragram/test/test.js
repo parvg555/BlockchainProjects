@@ -130,7 +130,7 @@ contract('Decentragram',([deployer,author,liker]) => {
             assert.equal(event.id.toNumber(), postCount.toNumber(),'ID correct')
             assert.equal(event.hash, hash,'Hash correct')
             assert.equal(event.description,'Image description','Description correct')
-            assert.equal(event.likes,'1','Likes correct')
+            assert.equal(event.likes,1,'Likes correct')
             assert.equal(event.author,author,'Author correct')
 
             // Checking that author received the funds

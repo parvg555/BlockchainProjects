@@ -86,13 +86,13 @@ contract Decentragram {
         // Checking for valid id
         require(_id>0&&_id<=postCount);
         // Fetching the post
-        Post memory _post = posts[_id];
+        Post storage _post = posts[_id];
         // Getting the address of author
         address _author = _post.author;
         // Paying author 
         payable(address(_author)).transfer(msg.value);
         // Incrementing the likes
-        _post.likes = _post.likes + 1;
+        _post.likes=_post.likes+1;
         // Triggeting post liked event
         emit postLiked(
             _id,

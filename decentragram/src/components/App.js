@@ -28,6 +28,14 @@ function App() {
 				setPostCount(postCount);
 				return postCount;
 			})
+
+			for(var i=1;i<=postCount;i++){
+				await decentragram.methods.posts(i).call({
+					from:networkData.address
+				}).then((post) => {
+					setPosts((posts) => [...posts,post]);
+				})
+			}
 			
 		}else{
 			alert("Dapp not deployed to detected network");
@@ -63,8 +71,14 @@ function App() {
 				posting?
 				(<Posting
 					userid={account}
+					decentragram = {decentragram}
 				/>):
-				(<Posts/>)
+				(<Posts
+					user = {account}
+					posts = {posts}
+					postCount={postCount}
+					decentragram = {decentragram}
+				/>)
 			}
     	</div>
   	);
